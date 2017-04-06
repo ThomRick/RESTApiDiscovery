@@ -1,0 +1,19 @@
+{
+  "name": "rest-api-discovery",
+  "version": "0.0.0",
+  "description": "A plugin service to expose an API discovery service",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomRick/rest-api-discovery.git"
+  },
+  "author": "ThomRick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThomRick/rest-api-discovery/issues"
+  },
+  "homepage": "https://github.com/ThomRick/rest-api-discovery#readme"
+}
