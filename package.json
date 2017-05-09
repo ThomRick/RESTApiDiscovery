@@ -2,9 +2,9 @@
   "name": "rest-api-discovery",
   "version": "0.0.0",
   "description": "A plugin service to expose an API discovery service",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc --require ts-node/register mocha src/**/*.spec.ts --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,21 @@
   "bugs": {
     "url": "https://github.com/ThomRick/rest-api-discovery/issues"
   },
-  "homepage": "https://github.com/ThomRick/rest-api-discovery#readme"
+  "homepage": "https://github.com/ThomRick/rest-api-discovery#readme",
+  "devDependencies": {
+    "@types/express": "^4.0.35",
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.12",
+    "@types/supertest": "^2.0.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "nyc": "^10.2.0",
+    "supertest": "^3.0.0",
+    "ts-node": "^3.0.2",
+    "typescript": "^2.2.2"
+  },
+  "dependencies": {
+    "nest.js": "^1.0.6",
+    "reflect-metadata": "^0.1.10"
+  }
 }
