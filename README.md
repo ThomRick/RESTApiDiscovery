@@ -49,26 +49,30 @@ class UsersController {
   }
 }
 ```
+Server.ts :
+```typescript
+class ApplicationServer {
+  private application: ExpressApplication = express();
 
+  public create(): ApplicationServer {
+    const controller = new UsersController();
+    this.application.use(new UsersRouter(controller).create());
+    this.application.use(new Router('/api').create([ controller ]));
+    return this;
+  }
+
+  public start() {
+    this.application.listen(8080, () => {
+      console.log('application listening at port 8080');
+    });
+  }
+}
+```
 main.ts :
 ```typescript
-const controller = new UsersController();
-const router: ExpressRouter = express.Router();
-router.get('/api/users', controller.getAll.bind(controller));
-router.get('/api/users/:id', controller.getById.bind(controller));
-
-const application: ExpressApplication = express();
-application.use(router);
-
-const resourceRouter: ExpressRouter = new Router('/api')
-  .create([
-    controller
-  ]);
-application.use(resourceRouter);
-
-application.listen(8080, () => {
-  console.log('application listening at port 8080');
-});
+new ApplicationServer()
+  .create()
+  .start();
 ```
 
 When Client made the GET /api request it will receive the api description below :

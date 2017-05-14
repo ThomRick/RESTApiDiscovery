@@ -40,21 +40,38 @@ class UsersController {
   }
 }
 
-const controller = new UsersController();
-const router: ExpressRouter = express.Router();
-router.get('/api/users', controller.getAll.bind(controller));
-router.get('/api/users/:id', controller.getById.bind(controller));
+class UsersRouter {
+  private router: ExpressRouter = express.Router();
+  private controller: UsersController;
 
-const application: ExpressApplication = express();
-application.use(router);
+  constructor(controller: UsersController) {
+    this.controller = controller;
+  }
 
-const resourceRouter: ExpressRouter = new Router('/api')
-  .create([
-    controller
-  ]);
+  public create(): ExpressRouter {
+    this.router.get('/api/users', this.controller.getAll.bind(this.controller));
+    this.router.get('/api/users/:id', this.controller.getById.bind(this.controller));
+    return this.router;
+  }
+}
 
-application.use(resourceRouter);
+class ApplicationServer {
+  private application: ExpressApplication = express();
 
-application.listen(8080, () => {
-  console.log('application listening at port 8080');
-});
+  public create(): ApplicationServer {
+    const controller = new UsersController();
+    this.application.use(new UsersRouter(controller).create());
+    this.application.use(new Router('/api').create([ controller ]));
+    return this;
+  }
+
+  public start() {
+    this.application.listen(8080, () => {
+      console.log('application listening at port 8080');
+    });
+  }
+}
+
+new ApplicationServer()
+  .create()
+  .start();
