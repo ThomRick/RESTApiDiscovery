@@ -5,7 +5,6 @@ interface ApiDiscoveryResponse {
   _links: { [key: string]: UriTemplate }
   _self: string
 }
-
 const response: ApiDiscoveryResponse = {
   _links: {
     users: {
