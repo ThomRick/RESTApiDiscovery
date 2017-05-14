@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import {UriTemplate} from '../uri-template/uri-template';
+import {UriTemplate} from '../../../common/interfaces/uri-template';
 import {KEY_METADATA, PATH_METADATA} from '../../common/decorators/metadata/constants';
 import {isFunction} from 'util';
 

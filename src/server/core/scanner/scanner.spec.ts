@@ -1,5 +1,5 @@
 import {Scanner} from './scanner';
-import {UriTemplate} from '../uri-template/uri-template';
+import {UriTemplate} from '../../../common/interfaces/uri-template';
 import {Resource} from '../../common/decorators/resource.decorator';
 
 describe('Scanner', () => {

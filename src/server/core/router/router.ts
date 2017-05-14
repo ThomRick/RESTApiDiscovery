@@ -1,6 +1,6 @@
 import * as express from 'express';
 import {Request, Response, Router as ExpressRouter} from 'express';
-import {UriTemplate} from '../uri-template/uri-template';
+import {UriTemplate} from '../../../common/interfaces/uri-template';
 import {Scanner} from '../scanner/scanner';
 
 export class Router {
