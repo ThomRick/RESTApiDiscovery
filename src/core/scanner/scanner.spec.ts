@@ -1,6 +1,6 @@
 import {Scanner} from './scanner';
-import {Resource} from '../resource/resource';
-import {ResourceController} from '../../common/decorators/ressource-controller.decorator';
+import {UriTemplate} from '../uri-template/uri-template';
+import {Resource} from '../../common/decorators/resource.decorator';
 
 describe('Scanner', () => {
   let scanner: Scanner;
@@ -10,15 +10,14 @@ describe('Scanner', () => {
   });
 
   describe('#scan()', () => {
-    @ResourceController({key: 'users', path: '/users'})
-    class UsersController {}
-
-    it('should return a Map of Resource', () => {
-      const resourceMap: { [key: string]: Resource } = scanner.scan([]);
-    });
+    class UsersController {
+      @Resource({key: 'users', path: '/users'})
+      public getAll() {}
+    }
+    const controller = new UsersController();
 
     it('should return the expected Resource Map', () => {
-      const resourceMap: { [key: string]: Resource } = scanner.scan([UsersController]);
+      const resourceMap: { [key: string]: UriTemplate } = scanner.scan([controller]);
       expect(resourceMap).toEqual({
         users: {
           url: '/users',

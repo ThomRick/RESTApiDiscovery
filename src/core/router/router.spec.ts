@@ -22,7 +22,8 @@ describe('Router', () => {
         .expect(200)
         .end((error, response) => {
           expect(response.body).toEqual({
-            _links: {}
+            _links: {},
+            _self: endpoint
           });
         });
     });
