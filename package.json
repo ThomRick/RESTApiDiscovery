@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --compilers ts-node/register src/**/*.spec.ts",
     "clean": "rm -rf lib/*",
-    "build": "npm run -s clean && tsc"
+    "build": "npm run -s clean && tsc",
+    "postinstall": "bpm run -s build"
   },
   "repository": {
     "type": "git",
