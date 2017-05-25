@@ -1,0 +1,22 @@
+{
+  "name": "rest-api-discovery-ts-server-example",
+  "version": "0.0.0",
+  "description": "An example how to use rest-api-discovery lib with typescript server side",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run -s clean && tsc",
+    "clean": "rm -rf lib/*",
+    "start": "node index.js"
+  },
+  "author": "ThomRick",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.0.35",
+    "@types/node": "^7.0.12",
+    "typescript": "^2.2.2"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "rest-api-discovery": "git+https://github.com/ThomRick/rest-api-discovery.git"
+  }
+}
