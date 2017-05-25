@@ -1,7 +1,7 @@
 import {ApiDiscovery} from './api-discovery';
 import {ApiDiscoveryResponse} from './interfaces/api-discovery-response';
 import {UriBuilder} from './builder/uri-builder';
-import Constructable = jest.Constructable;
+import {expect} from 'chai';
 
 describe('ApiDiscovery', () => {
   const response: ApiDiscoveryResponse = {
@@ -26,13 +26,13 @@ describe('ApiDiscovery', () => {
 
   describe('#resource()', () => {
     it('should return an UriBuilder', () => {
-      expect(apiDiscovery.resource('users')).toEqual(new UriBuilder({ url: '/api/users', templated: false }));
+      expect(apiDiscovery.resource('users')).to.be.deep.equal(new UriBuilder({ url: '/api/users', templated: false }));
     });
 
     it('should throw an Error caused by unknown resource', () => {
       expect(() => {
         apiDiscovery.resource('unknown');
-      }).toThrow(new Error('Unknown resource unknown').message);
+      }).to.throw(new Error('Unknown resource unknown').message);
     });
   });
 });

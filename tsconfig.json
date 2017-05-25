@@ -10,7 +10,10 @@
     "target": "es6",
     "sourceMap": false,
     "allowJs": true,
-    "outDir": "lib"
+    "outDir": "lib",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "exclude": [
     "node_modules"

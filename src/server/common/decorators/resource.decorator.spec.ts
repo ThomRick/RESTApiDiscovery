@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import {Resource} from './resource.decorator';
 import {ResourceMetadata} from './metadata/resource.metadata';
 import {KEY_METADATA, PATH_METADATA} from './metadata/constants';
+import {expect} from 'chai';
 
 describe('@Resource', () => {
   const properties: ResourceMetadata = {
@@ -18,7 +19,7 @@ describe('@Resource', () => {
     const key = Reflect.getMetadata(KEY_METADATA, Test.test);
     const path = Reflect.getMetadata(PATH_METADATA, Test.test);
 
-    expect(key).toEqual(properties.key);
-    expect(path).toEqual(properties.path);
+    expect(key).to.be.equal(properties.key);
+    expect(path).to.be.equal(properties.path);
   });
 });

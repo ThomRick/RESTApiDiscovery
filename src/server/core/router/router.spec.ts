@@ -2,6 +2,7 @@ import {Router} from './router';
 import {Application as ExpressApplication, Router as ExpressRouter} from 'express';
 import * as express from 'express';
 import * as supertest from 'supertest';
+import {expect} from 'chai';
 
 describe('Router', () => {
   let router: Router;
@@ -21,7 +22,7 @@ describe('Router', () => {
         .get(endpoint)
         .expect(200)
         .end((error, response) => {
-          expect(response.body).toEqual({
+          expect(response.body).to.be.deep.equal({
             _links: {},
             _self: endpoint
           });
