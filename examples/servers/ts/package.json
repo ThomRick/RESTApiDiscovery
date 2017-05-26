@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "express": "^4.15.2",
-    "rest-api-discovery": "git+https://github.com/ThomRick/rest-api-discovery.git"
+    "rest-api-discovery": "git+https://github.com/ThomRick/rest-api-discovery.git#FEATURE-0009"
   }
 }
